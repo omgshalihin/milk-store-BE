@@ -39,4 +39,10 @@ public class ProductController {
         Product savedProduct = productService.addProduct(productDetails);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedProduct);
     }
+
+    @PatchMapping("/{id}/{orderQuantity}")
+    ResponseEntity<Product> updateProductQuantity(@PathVariable String id, @PathVariable Double orderQuantity) {
+        Product updatedProduct = productService.updateProductQuantity(id, orderQuantity);
+        return ResponseEntity.status(HttpStatus.OK).body(updatedProduct);
+    }
 }

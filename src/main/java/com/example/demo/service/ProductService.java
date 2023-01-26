@@ -10,4 +10,6 @@ public interface ProductService {
     Product addProduct(Product productDetails);
 
     Product getSpecificProduct(String id);
+
+    Product updateProductQuantity(String id, Double orderQuantity);
 }

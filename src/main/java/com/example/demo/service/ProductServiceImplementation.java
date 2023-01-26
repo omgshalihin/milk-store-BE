@@ -29,4 +29,11 @@ public class ProductServiceImplementation implements ProductService{
     public Product getSpecificProduct(String id) {
         return productRepository.getProductById(id);
     }
+
+    @Override
+    public Product updateProductQuantity(String id, Double orderQuantity) {
+        var productDetails = productRepository.getProductById(id);
+        productDetails.setStorage(productDetails.getStorage() - orderQuantity);
+        return productRepository.save(productDetails);
+    }
 }
